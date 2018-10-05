@@ -1,0 +1,54 @@
+{
+  "api/books":[
+    {
+      "title": "Princess and the poney. Fran\u00e7ais",
+      "barcode": "32777069495146",
+      "duedate": " DUE 18-10-07 \n"
+    },
+    {
+      "title": "La princesse, le dragon et le chevalier intr\u00e9pide",
+      "barcode": "32777063509264",
+      "duedate": " DUE 18-10-07 \n"
+    },
+    {
+      "title": "Les amours de Lulu \/ texte, Lucie Papineau ; illustrations, Catherine Lepage.",
+      "barcode": "32777035343990",
+      "duedate": " DUE 18-10-21 \n"
+    },
+    {
+      "title": "L'\u00e9puisette de Cendrillon \/ Ghislaine Biondi ; illustrations de Genevi\u00e8ve Godbout.",
+      "barcode": "32777066878526",
+      "duedate": " DUE 18-10-21 \n"
+    },
+    {
+      "title": "Maman est une tortue \/ texte, Carole Forget ; illustrations, Bruno St-Aubin.",
+      "barcode": "32777055212521",
+      "duedate": " DUE 18-10-21 \n"
+    },
+    {
+      "title": "Le chevalier id\u00e9al \/ Pascal Brissy ; illustrations de Fr\u00e9d\u00e9ric Pillot.",
+      "barcode": "32777058650354",
+      "duedate": " DUE 18-10-21 \n"
+    },
+    {
+      "title": "Papa est un extraterrestre \/ texte et illustration, Bruno St-Aubin.",
+      "barcode": "32777039770685",
+      "duedate": " DUE 18-10-21 \n"
+    },
+    {
+      "title": "Papa est un pirate \/ texte et illustrations, Bruno St-Aubin.",
+      "barcode": "32777053270224",
+      "duedate": " DUE 18-10-21 \n"
+    },
+    {
+      "title": "L'\u00e9cole de la jungle \/ G\u00e9rard Moncomble ; illustrations d'\u00c9ric Gast\u00e9.",
+      "barcode": "32777064672608",
+      "duedate": " DUE 18-10-21 \n"
+    },
+    {
+      "title": "Des papillons plein la t\u00eate! \/ \u00e9crit par Delphine Gilles Cotte ; illustr\u00e9 par Gwena\u00eblle Doumont.",
+      "barcode": "32777067264999",
+      "duedate": " DUE 18-10-21 \n"
+    }
+  ]
+}
