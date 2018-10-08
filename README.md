@@ -10,18 +10,18 @@ TODO
 
 ## How to run the tool locally ?
 
-This is a React frontend application with a NodeJS/Express backend located in ``server/``.
+This is a React frontend application (in ``client/``) with a NodeJS/Express backend.
 
 
 ### Launch the backend
 ```
-$ cd server/
 $ npm install
 $ npm run devstart
 ```
 
 ### Launch the frontend
 ```
+$ cd client/
 $ npm install
 $ npm start
 ```
