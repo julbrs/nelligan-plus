@@ -13,20 +13,13 @@ TODO
 This is a React frontend application (in ``client/``) with a NodeJS/Express backend.
 
 
-### Launch the backend
+### Launch the frontend+backend
 ```
 $ npm install
-$ npm run devstart
+$ npm run both
 ```
 
-### Launch the frontend
-```
-$ cd client/
-$ npm install
-$ npm start
-```
-
-And then check on http://localhost:3000
+And then check on http://localhost:5000
 
 ## Testing heroku instance
 

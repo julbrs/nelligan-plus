@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import { loadBookInfo } from '../actions'
-import {  Media, Image, Content, Level, Icon, Delete } from 'reactbulma'
-
+import { loadBookInfo, renewBook } from '../actions'
+import Media from 'react-bulma-components/lib/components/media';
+import Image from 'react-bulma-components/lib/components/image';
+import Content from 'react-bulma-components/lib/components/content';
+import Level from 'react-bulma-components/lib/components/level';
+import Icon from 'react-bulma-components/lib/components/icon';
 
 class Book extends Component {
+  constructor() {
+    super();
+    this.handleRenew = this.handleRenew.bind(this);
+  }
 
   componentDidMount() {
     this.props.loadBookInfo(this.props.book);
@@ -12,54 +19,70 @@ class Book extends Component {
 
   renderImage() {
     if(typeof this.props.book.thumb !== 'undefined') {
-      return (<Image  size={64} alt="64x64" src={this.props.book.thumb} />)
+      return (<Image alt="thumb" src={this.props.book.thumb} />)
     }
     else {
-      return <Image  size={64} alt="64x64" src="http://bulma.io/images/placeholders/64x64.png" />
+      return <Image alt="64x64" src="http://bulma.io/images/placeholders/64x64.png" />
+    }
+  }
+
+  handleRenew() {
+    this.props.renewBook(this.props.book);
+  }
+
+  getStatus() {
+    if(this.props.book.err !== undefined) {
+      return "error"
+    }
+    var todayPlusFewDays = new Date();
+    todayPlusFewDays.setDate(todayPlusFewDays.getDate()+3);
+    var duedate=new Date("20"+this.props.book.duedate);
+    if(todayPlusFewDays>duedate) {
+      return "warning"
     }
   }
 
   render() {
     return (
-      <Media key={this.props.book.barcode}>
-        <Media.Left>
+      <Media key={this.props.book.barcode} className={this.getStatus()}>
+        <Media.Item renderAs="figure" position="left">
           {this.renderImage()}
-        </Media.Left>
-        <Media.Content>
+        </Media.Item>
+        <Media.Item>
           <Content>
             <p>
-              <strong>{this.props.book.title}</strong> <small>{this.props.book.duedate}</small>
+              <strong>{this.props.book.title}</strong>
               <br/>
-              Barcode: {this.props.book.barcode}
-              <br/>
-              ISBN: {this.props.book.isbn}
-              <br/>
-              record: {this.props.book.record}
+              Card: {this.props.book.card.name} <strong>{this.props.book.err}</strong>
             </p>
-          </Content>
-          <Level mobile>
-            <Level.Left>
+          <Level>
+            <Level.Side align="left">
               <Level.Item>
-                <Icon small>
+                <Icon>
                   <i className="fa fa-reply" />
                 </Icon>
               </Level.Item>
               <Level.Item>
-                <Icon small>
-                  <i className="fa fa-retweet" />
+                <Icon>
+                  <i className="fa fa-retweet" onClick={this.handleRenew}/>
                 </Icon>
               </Level.Item>
               <Level.Item>
-                <Icon small>
+                <Icon>
                   <i className="fa fa-heart" />
                 </Icon>
               </Level.Item>
-            </Level.Left>
+            </Level.Side>
           </Level>
-        </Media.Content>
-        <Media.Right>
-          <Delete />
-        </Media.Right>
+          </Content>
+        </Media.Item>
+        <Media.Item position="right">
+            <small>{this.props.book.duedate}</small><br />
+            <small>Renew: {this.props.book.renew}</small><br />
+            <Icon>
+              <i title="Renew" className="fa fa-retweet"/>
+            </Icon>
+        </Media.Item>
       </Media>
     );
   }
@@ -67,7 +90,8 @@ class Book extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        loadBookInfo: (book) => dispatch(loadBookInfo(book))
+        loadBookInfo: (book) => dispatch(loadBookInfo(book)),
+        renewBook: (book) => dispatch(renewBook(book))
     };
 };
 

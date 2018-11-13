@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
-// import './App.css';
 import 'bulma/css/bulma.css';
+import './App.css'
+import 'font-awesome/css/font-awesome.css';
 import Header from './components/header'
 import CardForm from './components/card-form'
 import CardList from './components/card-list'
 import BookList from './components/book-list'
-import {Section} from 'reactbulma'
+import { Columns, Section, Container } from 'react-bulma-components/full';
 
 class App extends Component {
 
@@ -15,16 +15,17 @@ class App extends Component {
       <div>
         <Header />
           <Section>
-            <div className="container">
-              <div className="columns">
-                <div className="column">
-                  
+            <Container>
+              <Columns>
+                <Columns.Column>
+                  <h3 className="title is-3">Cards</h3>
+                  <p>Add a new card here !</p>
                   <CardForm />
                   <CardList />
-                </div>
+                </Columns.Column>
                 <BookList />
-              </div>
-            </div>
+              </Columns>
+            </Container>
           </Section>
       </div>
     );

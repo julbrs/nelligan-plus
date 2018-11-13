@@ -18,6 +18,15 @@ export default (state=initialState, action) => {
       return {
         cards: action.payload
       }
+    case 'LOAD_CARD_ERROR':
+      return state.map(card => {
+        if(card.code === action.payload.code) {
+          return {...card, ...action.payload};
+        }
+        else{
+          return card;
+        }
+      })
     default:
     return state
   }

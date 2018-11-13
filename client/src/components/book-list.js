@@ -5,12 +5,22 @@ import Book from './book-item'
 
 
 class BookList extends Component {
+//   constructor(props) {
+//   super(props);
+//   // this.state = {
+//   //   loading: true
+//   // }
+// }
 
   componentDidMount() {
     this.props.cards &&
     this.props.cards.map(card => {
       return this.props.loadBooks(card);
     });
+  }
+
+  componentDidUpdate() {
+    //this.setState({loading: !this.state.loading})
   }
 
   createListItems() {
@@ -21,11 +31,30 @@ class BookList extends Component {
     });
   }
 
+  // bookLoading() {
+  //   if(this.state.loading) {
+  //     return (
+  //       <BounceLoader
+  //         sizeUnit={"px"}
+  //         size={150}
+  //         color={'rgb(0, 209, 178)'}
+  //         loading={this.state.loading}
+  //         />
+  //     );
+  //   }
+  //   else {
+  //     return (
+  //         <div></div>
+  //     );
+  //
+  //   }
+  // }
+
   render() {
     return (
       <div className="column">
         <h3 className="title is-3">Books</h3>
-          {this.createListItems()}
+        {this.createListItems()}
       </div>
     );
   }

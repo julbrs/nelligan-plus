@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import 'bulma/css/bulma.css';
-import { Input, Button, Control, Field } from 'reactbulma'
+import Box from 'react-bulma-components/lib/components/box';
+
+
+import {
+  Field,
+  Control,
+} from 'react-bulma-components/lib/components/form';
+import Button from 'react-bulma-components/lib/components/button';
 import {connect} from 'react-redux';
 import { addCardLoadBooks } from '../actions'
 
@@ -8,17 +15,19 @@ class CardForm extends Component {
   constructor() {
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.name = React.createRef();
+    this.code = React.createRef();
+    this.pin = React.createRef();
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    const data = new FormData(event.target);
-    var card = {};
-    data.forEach(function(value, key){
-        card[key] = value;
-    });
-
-    if (card === {}) {
+    var card = {
+      name: this.name.current.value,
+      code: this.code.current.value,
+      pin: this.pin.current.value
+    };
+    if (card.code === undefined) {
       return;
     }
     this.props.addCardLoadBooks(card);
@@ -27,25 +36,24 @@ class CardForm extends Component {
 
 render() {
   return (
-    <div>
-    <h3 className="title is-3">Cards</h3>
-    <p>Add a new card here !</p>
+    <Box>
     <form id="add-card-form" onSubmit={this.handleSubmit}>
-      <Field grouped>
+      <Field horizontal>
         <Control>
-          <Input id="code" name="code" placeholder="Card Number" type="text" />
+          <input className="input" placeholder="Name" type="text" ref={this.name}/>
         </Control>
         <Control>
-          <Input id="pin" name="pin" placeholder="Code" type="password" />
+          <input className="input" placeholder="Card Number" type="text" ref={this.code} />
         </Control>
-      </Field>
-      <Field>
         <Control>
-          <Button type="submit">Save new Card</Button>
+          <input className="input" placeholder="Code" type="password" ref={this.pin} />
+        </Control>
+        <Control>
+          <Button type="submit">Save!</Button>
         </Control>
       </Field>
     </form>
-  </div>
+  </Box>
   );
   }
 }
