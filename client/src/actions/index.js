@@ -12,18 +12,29 @@ export const addCardLoadBooks = (card) => {
 export const loadBooks = (card) => {
   return (dispatch) => {
     axios.get(`${url}books`, {
-    params: card
+    params: {
+      code: card.code,
+      pin: card.pin
+    }
   })
     .then((res) => {
+
       card.err = undefined
-      let books = res.data.map(book => {
+      let books = res.data.books.map(book => {
         book.card = card;
         return book;
       })
       dispatch({type:'LOAD_BOOKS', payload: books})
+      if(res.data.fine !== '') {
+        card.fine = res.data.fine
+      }
+      else {
+        card.fine = undefined
+      }
+      dispatch({type:'UPDATE_CARD', payload: card})
     }).catch((err) => {
       card.err = err.response.data
-      dispatch({type:'LOAD_CARD_ERROR', payload: card})
+      dispatch({type:'UPDATE_CARD', payload: card})
     })
   }
 }

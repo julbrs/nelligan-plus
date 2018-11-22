@@ -18,7 +18,7 @@ export default (state=initialState, action) => {
       return {
         cards: action.payload
       }
-    case 'LOAD_CARD_ERROR':
+    case 'UPDATE_CARD':
       return state.map(card => {
         if(card.code === action.payload.code) {
           return {...card, ...action.payload};

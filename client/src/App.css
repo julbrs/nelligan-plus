@@ -16,3 +16,7 @@
      #fcf3cf    10px,
      #fcf3cf    20px
 );}
+
+.card {
+  min-height: 200px;
+}

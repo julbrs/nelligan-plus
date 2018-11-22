@@ -26,7 +26,17 @@ router.get('/books', function(req, res, next) {
       res.status(403).send("Error during login")
       return
     }
+
     var data = cheerio.load(body);
+    var fine = data('span.pat-transac a')
+
+    if(fine.text() === '') {
+      fine = ''
+    }
+    else {
+      fine = fine.text()
+    }
+
     data('tr.patFuncEntry').each(function(index, element){
       books[index] = {};
       books[index]['title'] = data(element).find('span.patFuncTitleMain').text();
@@ -60,11 +70,10 @@ router.get('/books', function(req, res, next) {
         else {
           books[index]['renew'] = m[3];
         }
-
-
       }
     });
-    res.json(books);
+    console.log(fine)
+    res.json({books: books, fine: fine});
   });
 });
 

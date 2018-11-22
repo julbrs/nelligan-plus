@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import Media from 'react-bulma-components/lib/components/media';
 import Content from 'react-bulma-components/lib/components/content';
-import Box from 'react-bulma-components/lib/components/box';
 import Button from 'react-bulma-components/lib/components/button';
+import Card from 'react-bulma-components/lib/components/card';
+import Heading from 'react-bulma-components/lib/components/heading';
+import Columns from 'react-bulma-components/lib/components/columns';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {deleteCard} from '../actions'
@@ -13,30 +15,49 @@ class CardList extends Component {
     e.preventDefault();
   }
 
-  isError(item) {
-    return (item.err !== undefined)?"error":""
+  cardClass(item) {
+    if(item.err !== undefined) {
+      return "card error"
+    }
+    else if (item.fine !== undefined) {
+      return "card warning"
+    }
+    return "card"
   }
 
   render() {
     return (
-      <div>
+      <Columns>
       {
         this.props.cards &&
         this.props.cards.map((item, key) =>
           // eslint-disable-next-line
-          <Box key={item.code} className={this.isError(item)}>
-            <Media>
-              <Media.Item>
+          <Columns.Column size={3} key={item.code}>
+            <Card className={this.cardClass(item)}>
+              <Card.Content>
+                <Media>
+                  <Media.Item>
+                    <Heading size={4}>{item.name}</Heading>
+                    <Heading subtitle size={6}>
+                      {item.code}
+                    </Heading>
+                  </Media.Item>
+                  <Media.Item renderAs="figure" position="right">
+                    <Button remove onClick={() => this.props.deleteCard(key)} id={item.code}/>
+                  </Media.Item>
+                </Media>
                 <Content>
-                  {item.name} <i>({item.code})</i> <strong>{item.err}</strong>
+                  <strong>{item.err}</strong><br />
+                  <em>{item.fine}</em>
                 </Content>
-              </Media.Item>
-              <Button remove onClick={() => this.props.deleteCard(key)} id={item.code}/>
-            </Media>
-          </Box>
+              </Card.Content>
+            </Card>
+          </Columns.Column>
+
+
       )
       }
-    </div>
+    </Columns>
     );
     }
   }

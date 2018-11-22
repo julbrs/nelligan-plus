@@ -4,7 +4,7 @@ export default (state=initialState, action) => {
     case 'LOAD_BOOKS':
       // add books andorder by due date
       return state.concat(action.payload).sort(function (a, b) {
-          return a.duedate > b.duedate;
+          return a.duedate > b.duedate ? 1 : -1;
         });
     case 'DELETE_BOOKS':
       return state.filter(book => book.card.code !== action.payload.code);
