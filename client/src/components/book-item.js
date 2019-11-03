@@ -59,17 +59,7 @@ class Book extends Component {
             <Level.Side align="left">
               <Level.Item>
                 <Icon>
-                  <i className="fa fa-reply" />
-                </Icon>
-              </Level.Item>
-              <Level.Item>
-                <Icon>
                   <i className="fa fa-retweet" onClick={this.handleRenew}/>
-                </Icon>
-              </Level.Item>
-              <Level.Item>
-                <Icon>
-                  <i className="fa fa-heart" />
                 </Icon>
               </Level.Item>
             </Level.Side>
@@ -80,7 +70,7 @@ class Book extends Component {
             <small>{this.props.book.duedate}</small><br />
             <small>Renew: {this.props.book.renew}</small><br />
             <Icon>
-              <i title="Renew" className="fa fa-retweet"/>
+              <i title="Renew" className="fa fa-retweet" onClick={this.handleRenew}/>
             </Icon>
         </Media.Item>
       </Media>
