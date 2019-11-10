@@ -1,0 +1,14 @@
+{
+  "name": "nelligan-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Julien Bras <julienbras@sidoine.org>",
+  "license": "ISC",
+  "dependencies": {
+    "nelligan-api": "^1.0.3"
+  }
+}

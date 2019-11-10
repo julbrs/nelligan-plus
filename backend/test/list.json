@@ -1,0 +1,21 @@
+{
+    "resource": "/api/books",
+    "path": "/api/books",
+    "httpMethod": "GET",
+    "headers": {
+      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+    },
+    "multiValueHeaders": {
+    },
+    "queryStringParameters": {
+      "code": "XXX",
+      "pin": "XXX"
+    },
+    "multiValueQueryStringParameters": null,
+    "pathParameters": null,
+    "stageVariables": null,
+    "requestContext": {
+    },
+    "body": null,
+    "isBase64Encoded": false
+  }
