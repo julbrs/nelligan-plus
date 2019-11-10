@@ -53,8 +53,6 @@ class CardList extends Component {
               </Card.Content>
             </Card>
           </Columns.Column>
-
-
       )
       }
     </Columns>

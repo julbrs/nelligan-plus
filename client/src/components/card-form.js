@@ -40,16 +40,16 @@ render() {
     <form id="add-card-form" onSubmit={this.handleSubmit}>
       <Field horizontal>
         <Control>
-          <input className="input" placeholder="Name" type="text" ref={this.name}/>
+          <input className="input" placeholder="Nom" type="text" ref={this.name}/>
         </Control>
         <Control>
-          <input className="input" placeholder="Card Number" type="text" ref={this.code} />
+          <input className="input" placeholder="Code carte" type="text" ref={this.code} />
         </Control>
         <Control>
-          <input className="input" placeholder="Code" type="password" ref={this.pin} />
+          <input className="input" placeholder="Pin" type="password" ref={this.pin} />
         </Control>
         <Control>
-          <Button type="submit">Save!</Button>
+          <Button type="submit">Ajouter!</Button>
         </Control>
       </Field>
     </form>
@@ -57,10 +57,6 @@ render() {
   );
   }
 }
-
-// function mapDispatchToProps(dispatch) {
-//   return bindActionCreators({addCard: addCard}, dispatch);
-// }
 
 const mapDispatchToProps = (dispatch) => {
     return {

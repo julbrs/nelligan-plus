@@ -53,24 +53,19 @@ class Book extends Component {
             <p>
               <strong>{this.props.book.title}</strong>
               <br/>
-              Card: {this.props.book.card.name} <strong>{this.props.book.err}</strong>
+              Carte: {this.props.book.card.name} <strong>{this.props.book.err}</strong>
             </p>
           <Level>
             <Level.Side align="left">
-              <Level.Item>
-                <Icon>
-                  <i className="fa fa-retweet" onClick={this.handleRenew}/>
-                </Icon>
-              </Level.Item>
             </Level.Side>
           </Level>
           </Content>
         </Media.Item>
         <Media.Item position="right">
             <small>{this.props.book.duedate}</small><br />
-            <small>Renew: {this.props.book.renew}</small><br />
+            <small>Renouvellé: {this.props.book.renew}</small><br />
             <Icon>
-              <i title="Renew" className="fa fa-retweet" onClick={this.handleRenew}/>
+              <i title="Renouveller" className="fa fa-retweet" onClick={this.handleRenew}/>
             </Icon>
         </Media.Item>
       </Media>

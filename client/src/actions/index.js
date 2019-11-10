@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const url = process.env.NODE_ENV === 'production' ? "https://sjqhnkiuyd.execute-api.us-east-1.amazonaws.com/latest/api/" : "http://localhost:5000/api/"
+const url = process.env.REACT_APP_API || "http://localhost:5000/api/"
 
 export const addCardLoadBooks = (card) => {
   return (dispatch) => {
@@ -65,7 +65,7 @@ export const renewBook = (book) => {
       let result = res.data;
       if(result.date !== undefined) {
         book.duedate = result.date
-        book.renew = book.renew + 1
+        book.renew = parseInt(book.renew) + 1
         dispatch({type:'RENEW_BOOK', payload: book})
       }
       else {

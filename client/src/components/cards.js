@@ -22,7 +22,7 @@ class Cards extends Component {
     if(this.state.show) {
       return (
         <div>
-          <p>Add a new card here !</p>
+          <p>Ajouter une nouvelle carte ici !</p>
           <CardForm />
           <CardList />
         </div>
@@ -36,11 +36,11 @@ class Cards extends Component {
         <Box>
           <Media>
             <Media.Item>
-              <h3 className="title is-3">Cards</h3>
+              <h3 className="title is-3">Cartes</h3>
               {this.renderCards()}
             </Media.Item>
             <Media.Item renderAs="figure" position="right">
-              <Button onClick={this.handleClick}>{this.state.show ? 'Hide' : 'Show'}</Button>
+              <Button onClick={this.handleClick}>{this.state.show ? 'Cacher' : 'Montrer'}</Button>
             </Media.Item>
           </Media>
         </Box>

@@ -1,26 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Hero, Container, Heading } from 'react-bulma-components/full';
 
-class Header extends Component {
+function Header() {
 
-render() {
-  return (
-    <Hero color="primary">
-      <Hero.Body>
-        <Container>
-          <Heading>
-            Nelligan+++
-          </Heading>
-          <Heading subtitle size={4}>
-            Manage your mulltiple Nelligan accounts with a single application.
-            All cards are stored in cache of your browser, a backend is present
-            only to request for books information.
-          </Heading>
-        </Container>
-      </Hero.Body>
-    </Hero>
-  );
-  }
+return (
+  <Hero color="primary">
+    <Hero.Body>
+      <Container>
+        <Heading>
+          Nelligan+++
+        </Heading>
+        <Heading subtitle size={4}>
+          Gérer vos différentes cartes de la bibliothèque de Montréal en évitant les retards et les frais !
+        </Heading>
+      </Container>
+    </Hero.Body>
+  </Hero>
+  )
 }
 
 export default (Header);

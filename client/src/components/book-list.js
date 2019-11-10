@@ -5,12 +5,6 @@ import Book from './book-item'
 
 
 class BookList extends Component {
-//   constructor(props) {
-//   super(props);
-//   // this.state = {
-//   //   loading: true
-//   // }
-// }
 
   componentDidMount() {
     this.props.cards &&
@@ -20,7 +14,6 @@ class BookList extends Component {
   }
 
   componentDidUpdate() {
-    //this.setState({loading: !this.state.loading})
   }
 
   createListItems() {
@@ -31,29 +24,10 @@ class BookList extends Component {
     });
   }
 
-  // bookLoading() {
-  //   if(this.state.loading) {
-  //     return (
-  //       <BounceLoader
-  //         sizeUnit={"px"}
-  //         size={150}
-  //         color={'rgb(0, 209, 178)'}
-  //         loading={this.state.loading}
-  //         />
-  //     );
-  //   }
-  //   else {
-  //     return (
-  //         <div></div>
-  //     );
-  //
-  //   }
-  // }
-
   render() {
     return (
       <div className="column">
-        <h3 className="title is-3">Books</h3>
+        <h3 className="title is-3">Livres</h3>
         {this.createListItems()}
       </div>
     );
