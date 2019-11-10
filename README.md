@@ -2,25 +2,28 @@
 
 An application to manage multiple accounts of book library for the Montreal Nelligan system.
 
-TODO picture
 
-## How to run the tool on Heroku ?
+## Serverless backend
 
-TODO
+Managed by the serverless framework, goal is to deploy that on AWS.
 
-## How to run the tool locally ?
-
-This is a React frontend application (in ``client/``) with a NodeJS/Express backend.
-
-
-### Launch the frontend+backend
 ```
-$ npm install
-$ npm run both
+cd backend/
+sls deploy --stage=prod
 ```
 
-And then check on http://localhost:5000
+## React frontend
 
-## Testing heroku instance
+React app
 
-Not yet available !
+```
+cd client/
+npm install
+npm start
+```
+
+Deploy?
+
+```
+npm run deploy
+```
