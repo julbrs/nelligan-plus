@@ -33,7 +33,8 @@ export const loadBooks = (card) => {
       }
       dispatch({type:'UPDATE_CARD', payload: card})
     }).catch((err) => {
-      card.err = err.response.data
+      card.err = err.response.data.message
+      console.log(card.err)
       dispatch({type:'UPDATE_CARD', payload: card})
     })
   }
