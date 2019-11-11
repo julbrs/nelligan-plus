@@ -8,7 +8,7 @@ return (
     <Hero.Body>
       <Container>
         <Heading>
-          Nelligan+++
+          Nelligan+
         </Heading>
         <Heading subtitle size={4}>
           Gérer vos différentes cartes de la bibliothèque de Montréal en évitant les retards et les frais !

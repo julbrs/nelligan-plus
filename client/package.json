@@ -23,6 +23,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "deploy": "NODE_ENV=production REACT_APP_API=https://3i65nvrrzh.execute-api.us-east-1.amazonaws.com/prod/api/ react-scripts build && cd build && surge --domain https://nelligan.surge.sh"
+    "deploy": "NODE_ENV=production REACT_APP_API=https://3i65nvrrzh.execute-api.us-east-1.amazonaws.com/prod/api/ react-scripts build && cd build && surge --project . --domain https://nelligan.surge.sh"
   }
 }
