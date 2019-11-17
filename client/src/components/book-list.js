@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import { loadBooks } from '../actions'
 import Book from './book-item'
 
+import Columns from 'react-bulma-components/lib/components/columns';
+
 
 class BookList extends Component {
 
@@ -19,16 +21,23 @@ class BookList extends Component {
   createListItems() {
     return this.props.books.map(item => {
       return (
-            <Book key={item.barcode} book={item}/>
+        <Columns.Column size={6} key={item.code}>
+
+            <Book key={item.code} book={item}/>
+        </Columns.Column>
       );
     });
   }
 
   render() {
     return (
+
       <div className="column">
         <h3 className="title is-3">Livres</h3>
+        <Columns multiline={true}>
+
         {this.createListItems()}
+        </Columns>
       </div>
     );
   }

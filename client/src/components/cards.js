@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Section from 'react-bulma-components/lib/components/section';
-import Button from 'react-bulma-components/lib/components/button';
 import Box from 'react-bulma-components/lib/components/box';
-import Media from 'react-bulma-components/lib/components/media';
 import CardForm from './card-form'
 import CardList from './card-list'
 
@@ -22,10 +20,11 @@ class Cards extends Component {
     if(this.state.show) {
       return (
         <div>
-          <p>Ajouter une nouvelle carte ici !</p>
-          <CardForm />
-          <CardList />
+        <p>Ajouter une nouvelle carte ici !</p>
+        <CardForm />
+        <CardList />
         </div>
+
       );
     }
   }
@@ -34,15 +33,8 @@ class Cards extends Component {
     return (
       <Section>
         <Box>
-          <Media>
-            <Media.Item>
-              <h3 className="title is-3">Cartes</h3>
-              {this.renderCards()}
-            </Media.Item>
-            <Media.Item renderAs="figure" position="right">
-              <Button onClick={this.handleClick}>{this.state.show ? 'Cacher' : 'Montrer'}</Button>
-            </Media.Item>
-          </Media>
+        <h3 className="title is-3" onClick={this.handleClick}>Cartes <i className={this.state.show ? 'fa fa-eye-slash is-pulled-right' : 'fa fa-eye is-pulled-right'}/></h3>
+          {this.renderCards()}
         </Box>
       </Section>
     )

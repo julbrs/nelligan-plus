@@ -6,6 +6,8 @@ import Image from 'react-bulma-components/lib/components/image';
 import Content from 'react-bulma-components/lib/components/content';
 import Level from 'react-bulma-components/lib/components/level';
 import Icon from 'react-bulma-components/lib/components/icon';
+import Box from 'react-bulma-components/lib/components/box';
+
 
 class Book extends Component {
   constructor() {
@@ -44,7 +46,8 @@ class Book extends Component {
 
   render() {
     return (
-      <Media key={this.props.book.barcode} className={this.getStatus()}>
+      <Box className={`book ${this.getStatus()}`}>
+      <Media key={this.props.book.barcode}>
         <Media.Item renderAs="figure" position="left">
           {this.renderImage()}
         </Media.Item>
@@ -53,22 +56,39 @@ class Book extends Component {
             <p>
               <strong>{this.props.book.title}</strong>
               <br/>
-              Carte: {this.props.book.card.name} <strong>{this.props.book.err}</strong>
             </p>
-          <Level>
-            <Level.Side align="left">
-            </Level.Side>
-          </Level>
+            <small>
+            <Level breakpoint="mobile">
+              <Level.Side align="left">
+                <Level.Item>
+                  <Icon>
+                    <i title="Date" className="fa fa-calendar"/>
+                  </Icon>
+                  <small>{this.props.book.duedate}</small>
+                </Level.Item>
+              </Level.Side>
+              <Level.Side>
+                <Level.Item>
+                  <Icon>
+                    <i title="Carte" className="fa fa-id-card-o"/>
+                  </Icon>
+                  {this.props.book.card.name} <strong>{this.props.book.err}</strong>
+                </Level.Item>
+              </Level.Side>
+              <Level.Side align="right">
+                <Level.Item>
+                  <Icon>
+                    <i title="Renouveller" className="fa fa-retweet" onClick={this.handleRenew}/>
+                  </Icon>
+                  ({this.props.book.renew})
+                </Level.Item>
+              </Level.Side>
+            </Level>
+          </small>
           </Content>
         </Media.Item>
-        <Media.Item position="right">
-            <small>{this.props.book.duedate}</small><br />
-            <small>Renouvellé: {this.props.book.renew}</small><br />
-            <Icon>
-              <i title="Renouveller" className="fa fa-retweet" onClick={this.handleRenew}/>
-            </Icon>
-        </Media.Item>
       </Media>
+      </Box>
     );
   }
 }

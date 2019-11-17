@@ -29,7 +29,8 @@ const App = () => {
               de la bonne réussite de l'opération (ou d'une impossibilité si reservé ou autre).
             </p>
             <p>
-              J'ai créé cet outil pour gérer les 5 cartes de la famille avec efficacité ⚙️👌
+              J'ai créé cet outil pour gérer les 5 cartes de la famille avec efficacité
+              <span role="img" aria-label="image"> ⚙️👌</span>
             </p>
             <p>Cette application n'a aucun lien avec la ville de Montréal et le réseau
             de bibilothèques de la ville. Les identifications des cartes sont stockés
