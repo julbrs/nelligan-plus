@@ -73,8 +73,7 @@ export const renewBook = (book) => {
         dispatch({type:'RENEW_BOOK', payload: book})
       }
     }).catch((err) => {
-      console.log(err)
-      book.err = err.response.data.errors
+      book.err = err.response.data.msg
       dispatch({type:'RENEW_BOOK', payload: book})
     })
   }

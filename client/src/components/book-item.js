@@ -58,31 +58,25 @@ class Book extends Component {
               <br/>
             </p>
             <small>
-            <Level breakpoint="mobile">
-              <Level.Side align="left">
-                <Level.Item>
-                  <Icon>
-                    <i title="Date" className="fa fa-calendar"/>
-                  </Icon>
-                  <small>{this.props.book.duedate}</small>
-                </Level.Item>
-              </Level.Side>
-              <Level.Side>
-                <Level.Item>
-                  <Icon>
-                    <i title="Carte" className="fa fa-id-card-o"/>
-                  </Icon>
-                  {this.props.book.card.name} <strong>{this.props.book.err}</strong>
-                </Level.Item>
-              </Level.Side>
-              <Level.Side align="right">
-                <Level.Item>
-                  <Icon>
-                    <i title="Renouveller" className="fa fa-retweet" onClick={this.handleRenew}/>
-                  </Icon>
-                  ({this.props.book.renew})
-                </Level.Item>
-              </Level.Side>
+            <Level>
+              <Level.Item>
+                <Icon>
+                  <i title="Date" className="fa fa-calendar"/>
+                </Icon>
+                <small>{this.props.book.duedate}</small>
+              </Level.Item>
+              <Level.Item>
+                <Icon>
+                  <i title="Carte" className="fa fa-id-card-o"/>
+                </Icon>
+                {this.props.book.card.name} <strong>{this.props.book.err}</strong>
+              </Level.Item>
+              <Level.Item>
+                <Icon>
+                  <i title="Renouveller" className="fa fa-retweet" onClick={this.handleRenew}/>
+                </Icon>
+                ({this.props.book.renew})
+              </Level.Item>
             </Level>
           </small>
           </Content>
