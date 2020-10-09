@@ -9,6 +9,6 @@
   "author": "Julien Bras <julienbras@sidoine.org>",
   "license": "ISC",
   "dependencies": {
-    "nelligan-api": "^1.0.3"
+    "nelligan-api": "^1.0.4"
   }
 }

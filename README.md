@@ -12,6 +12,12 @@ cd backend/
 sls deploy --stage=prod
 ```
 
+### Test it ?
+
+```
+http https://2l0b3jpmdi.execute-api.us-east-1.amazonaws.com/dev/api/history card==XX pin==XX
+```
+
 ## React frontend
 
 React app
