@@ -1,5 +1,9 @@
-import React  from 'react';
-import { Hero, Footer, Container, Content } from 'react-bulma-components/full';
+import React  from 'react'
+
+import Footer from 'react-bulma-components/lib/components/footer'
+import Hero from 'react-bulma-components/lib/components/hero'
+import Container from 'react-bulma-components/lib/components/container'
+import Content from 'react-bulma-components/lib/components/content'
 
 function PageFooter() {
   return (

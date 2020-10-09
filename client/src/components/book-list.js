@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react'
+import {connect} from 'react-redux'
 import { loadBooks } from '../actions'
 import Book from './book-item'
 
-import Columns from 'react-bulma-components/lib/components/columns';
-
+import Columns from 'react-bulma-components/lib/components/columns'
 
 class BookList extends Component {
 

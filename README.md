@@ -24,12 +24,12 @@ React app
 
 ```
 cd client/
-npm install
-npm start
+yarn install
+yarn start
 ```
 
 Deploy?
 
 ```
-npm run deploy
+yarn run deploy
 ```

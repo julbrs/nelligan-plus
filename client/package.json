@@ -3,18 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.18.1",
-    "bulma": "^0.7.5",
+    "axios": "^0.20.0",
+    "bulma": "^0.9.0",
     "font-awesome": "^4.7.0",
-    "i18next": "^19.0.0",
-    "i18next-browser-languagedetector": "^4.0.1",
-    "react": "^16.11.0",
-    "react-bulma-components": "^2.3.0",
+    "node-sass": "^4.14.0",
+    "react": "^16.13.0",
+    "react-bulma-components": "^3.4.0",
     "react-dom": "^16.11.0",
-    "react-i18next": "^11.0.1",
     "react-redux": "^5.1.2",
     "react-router-redux": "^4.0.8",
-    "react-scripts": "1.1.5",
+    "react-scripts": "3.4.3",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0"
   },
@@ -24,5 +22,17 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "deploy": "NODE_ENV=production REACT_APP_API=https://3i65nvrrzh.execute-api.us-east-1.amazonaws.com/prod/api/ react-scripts build && cd build && surge --project . --domain https://nelligan.surge.sh"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

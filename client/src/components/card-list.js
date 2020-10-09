@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import Media from 'react-bulma-components/lib/components/media';
-import Content from 'react-bulma-components/lib/components/content';
-import Button from 'react-bulma-components/lib/components/button';
-import Card from 'react-bulma-components/lib/components/card';
-import Heading from 'react-bulma-components/lib/components/heading';
-import Columns from 'react-bulma-components/lib/components/columns';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import React, { Component } from 'react'
+import Media from 'react-bulma-components/lib/components/media'
+import Content from 'react-bulma-components/lib/components/content'
+import Button from 'react-bulma-components/lib/components/button'
+import Card from 'react-bulma-components/lib/components/card'
+import Heading from 'react-bulma-components/lib/components/heading'
+import Columns from 'react-bulma-components/lib/components/columns'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
 import {deleteCard} from '../actions'
 
 class CardList extends Component {

@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import Section from 'react-bulma-components/lib/components/section';
-import Box from 'react-bulma-components/lib/components/box';
+import React, { Component } from 'react'
+import Section from 'react-bulma-components/lib/components/section'
+import Box from 'react-bulma-components/lib/components/box'
 import CardForm from './card-form'
 import CardList from './card-list'
 

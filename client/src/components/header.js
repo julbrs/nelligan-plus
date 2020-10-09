@@ -1,5 +1,8 @@
-import React from 'react';
-import { Hero, Container, Heading } from 'react-bulma-components/full';
+import React from 'react'
+import Hero from 'react-bulma-components/lib/components/hero'
+import Container from 'react-bulma-components/lib/components/container'
+import Heading from 'react-bulma-components/lib/components/heading'
+
 
 function Header() {
 

@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react'
+import {connect} from 'react-redux'
 import { loadBookInfo, renewBook } from '../actions'
-import Media from 'react-bulma-components/lib/components/media';
-import Image from 'react-bulma-components/lib/components/image';
-import Content from 'react-bulma-components/lib/components/content';
-import Level from 'react-bulma-components/lib/components/level';
-import Icon from 'react-bulma-components/lib/components/icon';
-import Box from 'react-bulma-components/lib/components/box';
+import Media from 'react-bulma-components/lib/components/media'
+import Image from 'react-bulma-components/lib/components/image'
+import Content from 'react-bulma-components/lib/components/content'
+import Level from 'react-bulma-components/lib/components/level'
+import Icon from 'react-bulma-components/lib/components/icon'
+import Box from 'react-bulma-components/lib/components/box'
 
 
 class Book extends Component {

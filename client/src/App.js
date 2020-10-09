@@ -1,12 +1,14 @@
-import React from 'react';
-import 'bulma/css/bulma.css';
+import React from 'react'
 import './App.css'
-import 'font-awesome/css/font-awesome.css';
+import 'font-awesome/css/font-awesome.css'
 import Header from './components/header'
 import Footer from './components/footer'
 import Cards from './components/cards'
 import BookList from './components/book-list'
-import { Section, Container, Content } from 'react-bulma-components/full';
+
+import Section from 'react-bulma-components/lib/components/section'
+import Container from 'react-bulma-components/lib/components/container'
+import Content from 'react-bulma-components/lib/components/content'
 
 const App = () => {
   return (
