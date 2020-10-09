@@ -5,7 +5,7 @@ import Hero from 'react-bulma-components/lib/components/hero'
 import Container from 'react-bulma-components/lib/components/container'
 import Content from 'react-bulma-components/lib/components/content'
 
-function PageFooter() {
+const PageFooter = () =>{
   return (
     <Hero.Footer>
         <Footer>

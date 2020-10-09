@@ -10,11 +10,7 @@
     "react": "^16.13.0",
     "react-bulma-components": "^3.4.0",
     "react-dom": "^16.11.0",
-    "react-redux": "^5.1.2",
-    "react-router-redux": "^4.0.8",
-    "react-scripts": "3.4.3",
-    "redux": "^4.0.4",
-    "redux-thunk": "^2.3.0"
+    "react-scripts": "3.4.3"
   },
   "scripts": {
     "start": "react-scripts start",
