@@ -4,7 +4,7 @@ const api = process.env.REACT_APP_API;
 
 const Book = (props) => {
   const [bookInfo, setBookInfo] = useState({});
-  const [error, setError] = useState();
+  // const [error, setError] = useState();
   const [imageError, setImageError] = useState();
   const { book } = props;
 
@@ -47,37 +47,37 @@ const Book = (props) => {
     }
   };
 
-  const handleRenew = () => {
-    // TODO handle renew !
-    axios
-      .get(`${api}book/renew/${book.barcode}`, {
-        params: {
-          code: book.card.code,
-          pin: book.card.pin,
-          rid: book.rid,
-          rvalue: book.rvalue,
-        },
-      })
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => {
-        // if error during renew
-        setError(err.response.data.msg);
-      });
-  };
+  // const handleRenew = () => {
+  //   // TODO handle renew !
+  //   axios
+  //     .get(`${api}book/renew/${book.barcode}`, {
+  //       params: {
+  //         code: book.card.code,
+  //         pin: book.card.pin,
+  //         rid: book.rid,
+  //         rvalue: book.rvalue,
+  //       },
+  //     })
+  //     .then((res) => {
+  //       console.log(res.data);
+  //     })
+  //     .catch((err) => {
+  //       // if error during renew
+  //       setError(err.response.data.msg);
+  //     });
+  // };
 
-  const getStatus = () => {
-    if (book.err !== undefined) {
-      return "error";
-    }
-    var todayPlusFewDays = new Date();
-    todayPlusFewDays.setDate(todayPlusFewDays.getDate() + 3);
-    var duedate = new Date("20" + book.duedate);
-    if (todayPlusFewDays > duedate) {
-      return "warning";
-    }
-  };
+  // const getStatus = () => {
+  //   if (book.err !== undefined) {
+  //     return "error";
+  //   }
+  //   var todayPlusFewDays = new Date();
+  //   todayPlusFewDays.setDate(todayPlusFewDays.getDate() + 3);
+  //   var duedate = new Date("20" + book.duedate);
+  //   if (todayPlusFewDays > duedate) {
+  //     return "warning";
+  //   }
+  // };
 
   return (
     <div className="w-full md:w-64 md:h-64 rounded shadow-lg overflow-hidden">
