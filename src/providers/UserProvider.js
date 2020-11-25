@@ -22,13 +22,17 @@ class UserProvider extends Component {
       // set state
       user.cards = cards;
       this.setState({ user });
+    };
+
+    const saveCards = async (cards) => {
+      setCards(cards);
 
       // persist state in user document
       await persistUser(user);
     };
 
     return (
-      <UserContext.Provider value={{ user, setCards }}>
+      <UserContext.Provider value={{ user, setCards, saveCards }}>
         {this.props.children}
       </UserContext.Provider>
     );
