@@ -4,17 +4,17 @@ import CardAdd from "./CardAdd";
 import Card from "./Card";
 
 const Cards = () => {
-  const { user, setCards } = useContext(UserContext);
+  const { user, saveCards } = useContext(UserContext);
   const { cards } = user;
 
   const deleteCard = (card) => {
-    // delete card from context
-    setCards(cards.filter((crd) => crd.code !== card.code));
+    // delete card from context and persist it
+    saveCards(cards.filter((crd) => crd.code !== card.code));
   };
 
   const addCard = (card) => {
-    // add card to context
-    setCards([...cards, card]);
+    // add card to context and persist it
+    saveCards([...cards, card]);
   };
 
   return (
