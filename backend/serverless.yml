@@ -20,8 +20,10 @@ service: backend
 
 provider:
   name: aws
-  runtime: nodejs10.x
+  runtime: nodejs12.x
   profile: private
+  apiGateway:
+    shouldStartNameWithService: true
 
 # you can overwrite defaults here
 #  stage: dev
@@ -80,4 +82,10 @@ functions:
     events:
       - http:
           path: api/history
+          method: get
+  hold:
+    handler: hold.hold
+    events:
+      - http:
+          path: api/hold
           method: get
