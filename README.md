@@ -31,7 +31,7 @@ firebase deploy
 There is also the backend that is used to serve the library content. It is managed by the serverless 
 framework, deployed on AWS (Lambda)
 
-The endpoint is currently deployed on https://2l0b3jpmdi.execute-api.us-east-1.amazonaws.com/dev/api 
+The endpoint is currently deployed on https://91odko1hg0.execute-api.us-east-1.amazonaws.com/prod/api/
 
 ```
 cd backend/
@@ -41,5 +41,5 @@ sls deploy --stage=prod
 ### Test it ?
 
 ```
-http https://2l0b3jpmdi.execute-api.us-east-1.amazonaws.com/dev/api/history card==XX pin==XX
+http https://91odko1hg0.execute-api.us-east-1.amazonaws.com/prod/api/history card==XX pin==XX
 ```
