@@ -11,7 +11,7 @@
 #
 # Happy Coding!
 
-service: backend
+service: nelligan-plus
 # app and org for use with dashboard.serverless.com
 
 # You can pin your service to only deploy with a specific Serverless version
