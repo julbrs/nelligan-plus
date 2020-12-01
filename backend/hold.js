@@ -1,9 +1,9 @@
 "use strict";
 var api = require("nelligan-api");
 
-module.exports.history = async (event) => {
+module.exports.hold = async (event) => {
   try {
-    let history = await api.hold(event.queryStringParameters);
+    let hold = await api.hold(event.queryStringParameters);
     return {
       statusCode: 200,
       headers: {
