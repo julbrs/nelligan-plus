@@ -1,6 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
+import ReactGA from "react-ga";
 
 const provider = new firebase.auth.GoogleAuthProvider();
 
@@ -20,6 +21,10 @@ export const firestore = firebase.firestore();
 
 export const signInWithGoogle = () => {
   auth.signInWithPopup(provider);
+  ReactGA.event({
+    category: "Login",
+    action: "Google Signin",
+  });
 };
 
 export const generateUserDocument = async (user, additionalData) => {

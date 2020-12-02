@@ -41,5 +41,7 @@ sls deploy --stage=prod
 ### Test it ?
 
 ```
-http https://91odko1hg0.execute-api.us-east-1.amazonaws.com/prod/api/history card==XX pin==XX
+http https://91odko1hg0.execute-api.us-east-1.amazonaws.com/prod/api/books code==XX pin==XX
+http https://91odko1hg0.execute-api.us-east-1.amazonaws.com/prod/api/history code==XX pin==XX
+http https://91odko1hg0.execute-api.us-east-1.amazonaws.com/prod/api/hold code==XX pin==XX
 ```

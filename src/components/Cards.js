@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { UserContext } from "../providers/UserProvider";
 import CardAdd from "./CardAdd";
 import Card from "./Card";
+import ReactGA from "react-ga";
 
 const Cards = () => {
   const { user, saveCards } = useContext(UserContext);
@@ -10,11 +11,19 @@ const Cards = () => {
   const deleteCard = (card) => {
     // delete card from context and persist it
     saveCards(cards.filter((crd) => crd.code !== card.code));
+    ReactGA.event({
+      category: "Card",
+      action: "Remove card",
+    });
   };
 
   const addCard = (card) => {
     // add card to context and persist it
     saveCards([...cards, card]);
+    ReactGA.event({
+      category: "Card",
+      action: "New card",
+    });
   };
 
   return (

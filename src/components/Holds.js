@@ -2,21 +2,16 @@ import React, { useContext, useState, useEffect } from "react";
 import Book from "./Book";
 import { UserContext } from "../providers/UserProvider";
 import axios from "axios";
-import ReactGA from "react-ga";
 
 const api = process.env.REACT_APP_API;
 
-const Books = () => {
+const Holds = () => {
   const { user } = useContext(UserContext);
   const { cards } = user;
   const [books, setBooks] = useState([]);
 
   useEffect(
     () => {
-      ReactGA.event({
-        category: "Books",
-        action: "List books",
-      });
       Promise.all(
         cards
           // remove card in error or with fine to avoid reaction loop
@@ -24,7 +19,7 @@ const Books = () => {
           .filter((c) => c.fine === undefined)
           .map((card) =>
             axios
-              .get(`${api}books`, {
+              .get(`${api}hold`, {
                 params: {
                   code: card.code,
                   pin: card.pin,
@@ -32,8 +27,9 @@ const Books = () => {
               })
               .then((res) => {
                 // add card info to the book
-                return res.data.books.map((book) => {
+                return res.data.hold.map((book) => {
                   book.card = card;
+                  book.duedate = book.pickup;
                   return book;
                 });
               })
@@ -47,7 +43,7 @@ const Books = () => {
 
         setBooks(
           data.flat().sort((a, b) => {
-            if (a.duedate > b.duedate) {
+            if (a.title > b.title) {
               return 1;
             } else {
               return -1;
@@ -62,7 +58,7 @@ const Books = () => {
   return (
     <div className="mt-4">
       <div className="text-3xl font-extrabold text-blue-900">
-        {books.length} books
+        {books.length} holds
       </div>
       <hr className="mb-4" />
       <div className="flex flex-col md:flex-row md:flex-wrap gap-4">
@@ -74,4 +70,4 @@ const Books = () => {
   );
 };
 
-export default Books;
+export default Holds;
