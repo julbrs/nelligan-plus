@@ -5,10 +5,9 @@ import axios from "axios";
 const api = process.env.REACT_APP_API;
 
 const Card = (props) => {
-  const { card, deleteCard } = props;
+  const { card, deleteCard, setBarCode } = props;
   const [fine, setFine] = useState();
   const [error, setError] = useState();
-
   useEffect(() => {
     axios
       .get(`${api}books`, {
@@ -25,16 +24,17 @@ const Card = (props) => {
         // if error during books call then set error flag
         setError(true);
       });
-  });
+  }, [card]);
 
   return (
     <div className="w-full md:w-64 rounded shadow-lg px-6 py-4 relative">
       <svg
-        className="h-24 w-24 text-gray-500"
+        className="h-24 w-24 text-gray-500 cursor-pointer"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
+        onClick={() => setBarCode(card.code)}
       >
         <path
           strokeLinecap="round"
