@@ -36,6 +36,10 @@ const Cards = () => {
           {cards.length} cards
         </div>
         <hr className="mb-4" />
+        <p className="italic text-gray-600 text-sm text-right mb-2">
+          Press a card icon to get the barcode. Delete a card with the cross
+          icon.
+        </p>
         <div className="flex flex-col md:flex-row flex-wrap gap-4">
           {cards.map((card) => (
             <Card

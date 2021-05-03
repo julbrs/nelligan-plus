@@ -1,23 +1,34 @@
-import Barcode from "react-barcode";
+import { useBarcode } from "react-barcodes";
+
+import logo from "./images/logo.png";
 
 const BarCodeCard = (props) => {
   const { value, setBarCode } = props;
+  const { inputRef } = useBarcode({
+    value: value,
+    options: {
+      format: "codabar",
+      width: "2",
+      height: "50",
+    },
+  });
   return (
-    <div className="relative">
-      <Barcode value={value} format="codabar" width="2" height="50" />
-      <svg
-        className="h-6 w-6 text-gray-500  absolute top-0 right-0 cursor-pointer"
+    <div>
+      <p className="italic text-gray-600 text-sm text-right mb-2">
+        Press the card to go back...
+      </p>
+      <div
+        className="border border-gray-600 rounded pt-4 cursor-pointer max-w-lg m-auto"
         onClick={() => setBarCode(null)}
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 20 20"
-        fill="currentColor"
       >
-        <path
-          fillRule="evenodd"
-          d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
-          clipRule="evenodd"
-        />
-      </svg>
+        <div className="flex">
+          <img src={logo} className="w-24 h-24 hidden sm:block" />
+          <div className="w-full">
+            <p className="text-center font-mono">Carte d'abonné</p>
+            <svg ref={inputRef} className="w-full" />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
