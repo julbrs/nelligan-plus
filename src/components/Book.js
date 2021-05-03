@@ -14,6 +14,10 @@ const Book = (props) => {
   useEffect(
     () => {
       axios.get(`${api}book/${book.record}`).then((res) => {
+        if (res.data.summary) {
+          res.data.summary = `${res.data.summary.substring(0, 100)}...`;
+        }
+
         setBookInfo(res.data);
       });
     },
@@ -94,7 +98,7 @@ const Book = (props) => {
         <p className="text-gray-600 text-sm">{bookInfo.summary}</p>
       </div>
       <svg
-        className="h-6 w-6 text-gray-500 mr-2 mt-2 absolute top-0 right-0 cursor-pointer hover:text-gray-800"
+        className="h-6 w-6 text-gray-800 mr-2 mt-2 absolute top-0 right-0 cursor-pointer hover:text-black"
         onClick={handleRenew}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"

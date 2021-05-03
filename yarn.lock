@@ -7087,7 +7087,7 @@ js-yaml@^3.13.1:
     argparse "^1.0.7"
     esprima "^4.0.0"
 
-jsbarcode@^3.8.0:
+jsbarcode@^3.11.3:
   version "3.11.4"
   resolved "https://registry.yarnpkg.com/jsbarcode/-/jsbarcode-3.11.4.tgz#00dfe90329af94269ac0808b0858206aa3a71416"
   integrity sha512-PHtad17lOl6LOLGK20k5I6P7MabiyHaJY5u5N5TlzC6ZunOR+yFnFnRUoqqOefrYPqO2nuJ1weHzG8B7YYEnHg==
@@ -9661,13 +9661,12 @@ react-app-polyfill@^2.0.0:
     regenerator-runtime "^0.13.7"
     whatwg-fetch "^3.4.1"
 
-react-barcode@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/react-barcode/-/react-barcode-1.4.0.tgz#ebc85ff1b8b49ac4b947b7f3745d684c6c363902"
-  integrity sha512-xDxIc9WUTQPMcwc3kbCVsjh03WiPyynms9OSdsNSh2AAgB6XqMiy9hYWkCNHgdNdvurkvKB6hm25AZHXyQfvlQ==
+react-barcodes@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-barcodes/-/react-barcodes-1.1.0.tgz#c3f46911961d0c1e1025f0fadb0f0bce9d577fd4"
+  integrity sha512-hH2ArFmFatQhdQGsy1QL33v/2Rjva5C0XuYZnt9iz3c5rZ2ARV8HRUwct44o3P+rr71JQirsBzk8hKJ3IlS5xQ==
   dependencies:
-    jsbarcode "^3.8.0"
-    prop-types "^15.6.2"
+    jsbarcode "^3.11.3"
 
 react-dev-utils@^11.0.0:
   version "11.0.0"
