@@ -6,35 +6,31 @@ const History = () => {
   const [books, setBooks] = useState([]);
   const { card } = useParams();
 
-  const getData = async () => {
-    try {
-      const data = await API.get("main", `/cards/${card}/history`);
-      setBooks(
-        data.history.sort((a, b) => {
-          if (a.checkedout < b.checkedout) {
-            return 1;
-          } else {
-            return -1;
-          }
-        })
-      );
-    } catch (err) {
-      // if error during books call then return an empty array
-      return [];
-    }
-  };
-
-  useEffect(
-    () => {
-      getData();
-    },
-    [] /* refresh only if cards is changing not books ! */
-  );
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const data = await API.get("main", `/cards/${card}/history`);
+        setBooks(
+          data.history.sort((a, b) => {
+            if (a.checkedout < b.checkedout) {
+              return 1;
+            } else {
+              return -1;
+            }
+          })
+        );
+      } catch (err) {
+        // if error during books call then return an empty array
+        return [];
+      }
+    };
+    getData();
+  }, [card]);
 
   return (
     <div className="mt-4">
       <div className="text-3xl font-extrabold text-blue-900">
-        {books.length} books in history
+        last {books.length} books
       </div>
       <hr className="mb-4" />
       <div className="flex flex-col">
