@@ -9,6 +9,7 @@ import { Auth, Hub, API } from "aws-amplify";
 
 import "@aws-amplify/ui-react/styles.css";
 import SignIn from "./SignIn.js";
+import History from "./History";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -26,7 +27,6 @@ function App() {
           setCards([]);
           break;
         case "customOAuthState":
-          // setCustomState(data);
           break;
         default:
       }
@@ -47,6 +47,7 @@ function App() {
       <div className="mx-auto w-11/12 sm:w-5/6 md:w-3/4 py-8 px-4 sm:px-8 bg-gray-100">
         {user ? (
           <Routes>
+            <Route path="/cards/:card/history" element={<History />} />
             <Route
               path="/cards"
               element={<Cards cards={cards} setCards={setCards} />}

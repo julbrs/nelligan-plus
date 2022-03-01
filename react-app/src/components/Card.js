@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Warning from "./alerts/Warning";
 import Info from "./alerts/Info";
 import { API } from "aws-amplify";
+import { Link } from "react-router-dom";
 
 const Card = (props) => {
   const { card, deleteCard, setBarCode } = props;
@@ -41,7 +42,27 @@ const Card = (props) => {
       </svg>
       <div className="font-bold text-xl mb-2">{card.name}</div>
       <div className="text-l italic mb-2">[{card.code}]</div>
-      <p className="text-gray-600 text-sm">More info here soon. </p>
+      <p className="text-gray-600 text-sm">
+        Card{" "}
+        <Link
+          className="font-bold hover:text-gray-900"
+          to={`/cards/${card.id}/history`}
+        >
+          history 🦖
+        </Link>
+        .
+      </p>
+      <p className="text-gray-600 text-sm">
+        Card{" "}
+        <Link
+          className="font-bold hover:text-gray-900"
+          to="#"
+          title="not yet..."
+        >
+          recommendations 🏆
+        </Link>
+        (based on your previous reading).
+      </p>
       {error && <Warning text="This card have wrong credential. Remove it !" />}
       {fine && <Info text={fine} />}
       <svg
