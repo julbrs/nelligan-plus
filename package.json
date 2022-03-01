@@ -1,49 +1,30 @@
 {
-  "name": "nelligan-plus-firebase",
+  "name": "nelligan",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "autoprefixer": "9",
-    "axios": "^0.21.0",
-    "firebase": "^8.0.2",
-    "postcss-cli": "7.1.2",
-    "react": "^17.0.1",
-    "react-barcodes": "^1.1.0",
-    "react-dom": "^17.0.1",
-    "react-ga": "^3.3.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.0",
-    "tailwindcss": "^1.9.6",
-    "web-vitals": "^0.2.4"
-  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "build:styles": "postcss src/tailwind.css -o src/styles.css",
-    "prebuild": "yarn build:styles",
-    "prestart": "yarn build:styles"
+    "test": "sst test",
+    "start": "sst start",
+    "build": "sst build",
+    "deploy": "sst deploy",
+    "remove": "sst remove"
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "serverless-stack"
     ]
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "devDependencies": {
+    "@tsconfig/node14": "^1.0.1",
+    "@types/aws-lambda": "^8.10.70",
+    "@types/node": "<15.0.0",
+    "@types/uuid": "^8.3.4"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.53.0",
+    "@serverless-stack/cli": "0.66.0",
+    "@serverless-stack/resources": "0.66.0",
+    "aws-cdk-lib": "2.7.0",
+    "nelligan-api": "^1.0.5"
   }
 }
