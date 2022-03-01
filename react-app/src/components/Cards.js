@@ -5,7 +5,6 @@ import BarCodeCard from "./BarCodeCard";
 import { API } from "aws-amplify";
 
 const Cards = ({ cards, setCards }) => {
-  console.log(cards);
   const [barcode, setBarCode] = useState(null);
 
   const deleteCard = (card) => {

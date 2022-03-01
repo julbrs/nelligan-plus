@@ -1,5 +1,5 @@
 import api from "nelligan-api";
-import { errorObject, headers } from "./utils";
+import { errorObject, headers, retrieveCardInfo } from "./utils";
 import { APIGatewayProxyHandlerV2 } from "aws-lambda";
 
 /**
@@ -8,8 +8,9 @@ import { APIGatewayProxyHandlerV2 } from "aws-lambda";
  * @returns
  */
 export const handler: APIGatewayProxyHandlerV2 = async (event) => {
+  const card = await retrieveCardInfo(event);
   try {
-    let history = await api.history(event.queryStringParameters);
+    const history = await api.history(card);
     return {
       statusCode: 200,
       headers,

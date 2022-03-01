@@ -1,8 +1,6 @@
 import React from "react";
 import { useInput } from "../hooks/input";
 
-//import {CardsContext} from './context'
-
 const CardAdd = (props) => {
   const { value: name, bind: bindName, reset: resetName } = useInput("");
   const { value: code, bind: bindCode, reset: resetCode } = useInput("");
