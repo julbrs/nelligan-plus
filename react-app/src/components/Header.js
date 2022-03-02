@@ -26,6 +26,9 @@ const Header = () => {
         <Link to="/holds">
           <div className="border rounded-lg p-3">Holds</div>
         </Link>
+        <Link to="/search">
+          <div className="border rounded-lg p-3">Search</div>
+        </Link>
         {loggedIn && (
           <button
             className="border rounded-lg p-3"

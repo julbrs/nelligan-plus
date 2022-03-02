@@ -5,6 +5,7 @@ import Footer from "./Footer";
 import Books from "./Books";
 import Cards from "./Cards";
 import Holds from "./Holds";
+import Search from "./Search";
 import { Auth, Hub, API } from "aws-amplify";
 
 import "@aws-amplify/ui-react/styles.css";
@@ -13,7 +14,7 @@ import History from "./History";
 
 function App() {
   const [user, setUser] = useState(null);
-  const [cards, setCards] = useState([]);
+  const [cards, setCards] = useState();
 
   useEffect(() => {
     Hub.listen("auth", ({ payload: { event, data } }) => {
@@ -53,6 +54,7 @@ function App() {
               element={<Cards cards={cards} setCards={setCards} />}
             />
             <Route path="/holds" element={<Holds cards={cards} />} />
+            <Route path="/search" element={<Search cards={cards} />} />
             <Route path="/" element={<Books cards={cards} />} />
           </Routes>
         ) : (

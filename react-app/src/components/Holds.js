@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
 import Book from "./Book";
 import { API } from "aws-amplify";
+import BookLoading from "./BookLoading";
 
 const Holds = ({ cards }) => {
   const [books, setBooks] = useState([]);
+  const [loading, isLoading] = useState(true);
 
   useEffect(
     () => {
+      if (!cards) {
+        return;
+      }
       Promise.all(
         cards
           // remove card in error to avoid reaction loop
@@ -38,24 +43,40 @@ const Holds = ({ cards }) => {
             }
           })
         );
+        isLoading(false);
       });
     },
     [cards] /* refresh only if cards is changing not books ! */
   );
-
-  return (
-    <div className="mt-4">
-      <div className="text-3xl font-extrabold text-blue-900">
-        {books.length} holds
+  if (loading) {
+    return (
+      <div className="mt-4">
+        <div className="text-3xl font-extrabold text-gray-400 italic">
+          loading...
+        </div>
+        <hr className="mb-4" />
+        <div className="flex flex-col md:flex-row md:flex-wrap gap-4">
+          <BookLoading />
+          <BookLoading />
+          <BookLoading />
+        </div>
       </div>
-      <hr className="mb-4" />
-      <div className="flex flex-col md:flex-row md:flex-wrap gap-4">
-        {books.map((book) => (
-          <Book key={book.barcode} book={book} />
-        ))}
+    );
+  } else {
+    return (
+      <div className="mt-4">
+        <div className="text-3xl font-extrabold text-blue-900">
+          {books.length} holds
+        </div>
+        <hr className="mb-4" />
+        <div className="flex flex-col md:flex-row md:flex-wrap gap-4">
+          {books.map((book) => (
+            <Book key={book.barcode} book={book} />
+          ))}
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default Holds;
