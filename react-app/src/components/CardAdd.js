@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useInput } from "../hooks/input";
+import { API } from "aws-amplify";
 
 const CardAdd = (props) => {
+  const [libraries, setLibraries] = useState([{ value: "loading..." }]);
   const { value: name, bind: bindName, reset: resetName } = useInput("");
   const { value: code, bind: bindCode, reset: resetCode } = useInput("");
   const { value: pin, bind: bindPin, reset: resetPin } = useInput("");
+  const { value: library, bind: bindLibrary } = useInput("");
   const { addCard } = props;
+
+  useEffect(() => {
+    API.get("main", `/libraries`).then((data) => setLibraries(data));
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -16,6 +23,7 @@ const CardAdd = (props) => {
       name,
       code,
       pin,
+      library,
     });
 
     resetName();
@@ -27,9 +35,9 @@ const CardAdd = (props) => {
     <div className="w-full md:w-64 rounded overflow-hidden shadow-lg">
       <div className="bg-white px-6 py-4">
         <form className="bg-white">
-          <div className="mb-4">
+          <div className="mb-2">
             <label
-              className="block text-gray-700 text-sm font-bold mb-2 py bg"
+              className="block text-gray-700 text-sm font-bold mb-1 py bg"
               htmlFor="name"
             >
               Name
@@ -42,9 +50,9 @@ const CardAdd = (props) => {
               {...bindName}
             />
           </div>
-          <div className="mb-4">
+          <div className="mb-2">
             <label
-              className="block text-gray-700 text-sm font-bold mb-2 py bg"
+              className="block text-gray-700 text-sm font-bold mb-1 py bg"
               htmlFor="code"
             >
               Code
@@ -57,9 +65,9 @@ const CardAdd = (props) => {
               {...bindCode}
             />
           </div>
-          <div className="mb-6">
+          <div className="mb-2">
             <label
-              className="block text-gray-700 text-sm font-bold mb-2 bg"
+              className="block text-gray-700 text-sm font-bold mb-1 bg"
               htmlFor="pin"
             >
               Pin
@@ -71,6 +79,26 @@ const CardAdd = (props) => {
               placeholder="****"
               {...bindPin}
             />
+          </div>
+          <div className="mb-4">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-1 bg"
+              htmlFor="pin"
+            >
+              Library for new holds
+            </label>
+            <select
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+              id="library"
+              name="library"
+              {...bindLibrary}
+            >
+              {libraries.map((lib) => (
+                <option key={lib.code} value={lib.code}>
+                  {lib.value}
+                </option>
+              ))}
+            </select>
           </div>
           <button
             onClick={handleSubmit}
