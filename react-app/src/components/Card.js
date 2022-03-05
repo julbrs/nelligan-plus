@@ -42,6 +42,7 @@ const Card = (props) => {
       </svg>
       <div className="font-bold text-xl mb-2">{card.name}</div>
       <div className="text-l italic mb-2">[{card.code}]</div>
+      <div className="text-l italic mb-2">[{card.library}]</div>
       <p className="text-gray-600 text-sm">
         Card{" "}
         <Link

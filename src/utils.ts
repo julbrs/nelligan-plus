@@ -6,6 +6,7 @@ export interface Card {
   name: string;
   code: string;
   pin: string;
+  library: string;
 }
 
 export interface BookToRenew {
@@ -62,5 +63,6 @@ export const retrieveCardInfo: Card | any = async (
     id: "none",
     code: data.Item.cardCode.S,
     pin: data.Item.cardPin.S,
+    library: data.Item.cardLibrary.S,
   };
 };

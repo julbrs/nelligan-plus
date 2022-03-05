@@ -39,6 +39,7 @@ export default class MyStack extends sst.Stack {
       },
       cors: true,
       routes: {
+        "GET /libraries": "src/libraries.handler",
         "GET /cards": "src/cards.list",
         "POST /cards": "src/cards.add",
         "DELETE /cards/{id}": "src/cards.remove",

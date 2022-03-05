@@ -12,10 +12,12 @@ const ReserveBlock = ({ cards, record }) => {
   const [cardId, setCardId] = useState(cards[0].id);
 
   const handleClick = async () => {
+    setInfo(null);
+    setError(null);
     setLoading(true);
     try {
       const data = await API.post("main", `/books/reserve/${cardId}`, {
-        body: { record, location: "r39" },
+        body: { record },
       });
       setInfo(data.message);
       setLoading(false);

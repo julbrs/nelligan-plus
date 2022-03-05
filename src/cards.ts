@@ -1,6 +1,7 @@
 import { Card, errorObject, extractIdentityId, headers } from "./utils";
 import { APIGatewayProxyHandlerV2 } from "aws-lambda";
 import { v4 as uuid } from "uuid";
+import api from "nelligan-api";
 
 import {
   DynamoDBClient,
@@ -32,6 +33,8 @@ export const list: APIGatewayProxyHandlerV2 = async (event) => {
           id: e.cardId.S,
           name: e.cardName.S,
           code: e.cardCode.S,
+          library: api.libraries.find((l: any) => l.code === e.cardLibrary.S)
+            .value,
         }))
       ),
     };
@@ -59,6 +62,7 @@ export const add: APIGatewayProxyHandlerV2 = async (event) => {
       cardName: { S: card.name },
       cardCode: { S: card.code },
       cardPin: { S: card.pin },
+      cardLibrary: { S: card.library },
     },
   };
   try {

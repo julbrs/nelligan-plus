@@ -8,9 +8,9 @@ export const handler: APIGatewayProxyHandlerV2 = async (event) => {
   if (!event.body) {
     throw new Error("No book info provided in body");
   }
-  const { record, location } = JSON.parse(event.body);
+  const { record } = JSON.parse(event.body);
   try {
-    await api.reserve(card, record, location);
+    await api.reserve(card, record, card.library);
     return {
       statusCode: 200,
       headers,
