@@ -27,7 +27,7 @@ export const errorObject = (e: any) => {
   return {
     statusCode: 500,
     headers,
-    body: JSON.stringify("Error"),
+    body: JSON.stringify(e.message),
   };
 };
 

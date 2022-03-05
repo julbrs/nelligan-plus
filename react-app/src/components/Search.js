@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { API } from "aws-amplify";
-import BookLoading from "./BookLoading";
-import debounce from "lodash.debounce";
+import { Link } from "react-router-dom";
 
 const Search = ({ cards }) => {
   const [search, setSearch] = useState("");
@@ -12,7 +11,8 @@ const Search = ({ cards }) => {
     setSearch(e.target.value);
   };
 
-  const handleClick = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     setLoading(true);
     const data = await API.post("main", "/search", { body: { search } });
     setBooks(data);
@@ -24,20 +24,17 @@ const Search = ({ cards }) => {
       <div className="text-3xl font-extrabold text-blue-900">
         Search book on Nelligan catalog!
       </div>
-      <div>
+      <form onSubmit={handleSubmit}>
         <input
           onChange={handleInputChange}
-          className="w-10/12 my-4 p-2 text-lg font-mono text-gray-700 border-gray-200 border-2 rounded-sm"
+          className="w-8/12 my-4 p-2 text-lg font-mono text-gray-700 border-gray-200 border-2 rounded-sm"
           placeholder="Type keyword..."
           type="text"
         />
-        <button
-          onClick={handleClick}
-          className="w-2/12 pl-4 border-gray-200 border-2 rounded-sm my-4 p-2 font-mono text-lg"
-        >
+        <button className="w-4/12 pl-4 border-gray-200 border-2 rounded-sm my-4 p-2 font-mono text-lg">
           Search
         </button>
-      </div>
+      </form>
 
       <hr className="mb-4" />
       {loading && <div>Loading...</div>}
@@ -82,9 +79,12 @@ const Search = ({ cards }) => {
                       </td>
                       <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
                         {book.type === "Book" && (
-                          <button className="border-gray-200 border-2 rounded-sm my-4 p-2">
-                            Reserve
-                          </button>
+                          <Link
+                            to={`/books/${book.record}`}
+                            className="border-gray-200 border-2 rounded-sm my-4 p-2"
+                          >
+                            More info!
+                          </Link>
                         )}
                       </td>
                     </tr>

@@ -48,6 +48,7 @@ export default class MyStack extends sst.Stack {
         "GET /cards/{id}/history": "src/history.handler",
         "GET /cards/{id}/holds": "src/holds.handler",
         "POST /search": "src/search.handler",
+        "POST /books/reserve/{id}": "src/reserve.handler",
       },
     });
 

@@ -11,6 +11,7 @@ import { Auth, Hub, API } from "aws-amplify";
 import "@aws-amplify/ui-react/styles.css";
 import SignIn from "./SignIn.js";
 import History from "./History";
+import BookFullPage from "./BookFullPage";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -45,7 +46,7 @@ function App() {
   return (
     <Router>
       <Header />
-      <div className="mx-auto w-11/12 sm:w-5/6 md:w-3/4 py-8 px-4 sm:px-8 bg-gray-100">
+      <div className="mx-auto w-full sm:w-5/6 md:w-3/4 py-4 sm:py-8 px-2 sm:px-8 bg-gray-100">
         {user ? (
           <Routes>
             <Route path="/cards/:card/history" element={<History />} />
@@ -56,6 +57,10 @@ function App() {
             <Route path="/holds" element={<Holds cards={cards} />} />
             <Route path="/search" element={<Search cards={cards} />} />
             <Route path="/" element={<Books cards={cards} />} />
+            <Route
+              path="/books/:record"
+              element={<BookFullPage cards={cards} />}
+            />
           </Routes>
         ) : (
           <SignIn />
