@@ -93,8 +93,8 @@ const CardAdd = (props) => {
               name="library"
               {...bindLibrary}
             >
-              {libraries.map((lib) => (
-                <option key={lib.code} value={lib.code}>
+              {libraries.map((lib, i) => (
+                <option key={i} value={lib.code}>
                   {lib.value}
                 </option>
               ))}

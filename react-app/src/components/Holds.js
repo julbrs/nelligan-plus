@@ -70,8 +70,8 @@ const Holds = ({ cards }) => {
         </div>
         <hr className="mb-4" />
         <div className="flex flex-col md:flex-row md:flex-wrap gap-4">
-          {books.map((book) => (
-            <Book key={book.barcode} book={book} />
+          {books.map((book, i) => (
+            <Book key={i} book={book} />
           ))}
         </div>
       </div>

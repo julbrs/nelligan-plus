@@ -1,5 +1,5 @@
 import api from "nelligan-api";
-import { errorObject, headers } from "./utils";
+import { headers } from "./utils";
 import { APIGatewayProxyHandlerV2 } from "aws-lambda";
 
 export const handler: APIGatewayProxyHandlerV2 = async () => {

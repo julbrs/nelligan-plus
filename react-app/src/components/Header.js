@@ -6,8 +6,10 @@ import BookOpen from "./images/book-open";
 import CreditCard from "./images/credit-card";
 import SearchCircle from "./images/search-circle";
 import Hand from "./images/hand";
+import usePageTracking from "./PageTracking";
 
 const Header = () => {
+  usePageTracking();
   const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
