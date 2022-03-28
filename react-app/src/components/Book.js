@@ -63,13 +63,30 @@ const Book = (props) => {
       });
   };
 
+  // compute the nearDueDate
+  const dueDatePart = book.duedate.split("-");
+  const nearDueDate = Math.round(
+    (new Date(
+      2000 + parseInt(dueDatePart[0]),
+      dueDatePart[1] - 1,
+      dueDatePart[2]
+    ) -
+      new Date()) /
+      86400000
+  );
   return (
     <div className="w-full md:w-64 md:h-64 rounded shadow-lg overflow-hidden relative">
       {renderImage()}
       <div className="px-2">
         <div className="font-bold mb-2">{book.title}</div>
         <div className="font-bold mb-2">
-          {book.duedate} - {book.card.name}
+          <span className={nearDueDate < 4 ? "text-red-600" : ""}>
+            {book.duedate}
+          </span>{" "}
+          - {book.card.name}{" "}
+          <span className={book.status === "available" ? "text-red-600" : ""}>
+            - {book.status}
+          </span>
         </div>
         {error && <Warning text={error} />}
         {renew && <Info text={renew} />}

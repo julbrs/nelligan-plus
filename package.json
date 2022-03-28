@@ -25,6 +25,7 @@
     "@serverless-stack/cli": "0.66.0",
     "@serverless-stack/resources": "0.66.0",
     "aws-cdk-lib": "2.7.0",
-    "nelligan-api": "^1.0.6"
+    "bottleneck": "^2.19.5",
+    "nelligan-api": "^1.0.7"
   }
 }
