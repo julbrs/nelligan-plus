@@ -7,7 +7,7 @@ const Footer = () => {
         <strong>Nelligan+</strong> par{" "}
         <a
           className="text-teal-200 font-extrabold"
-          href="http://github.com/bobman38"
+          href="https://sidoine.org"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -17,7 +17,7 @@ const Footer = () => {
       <p className="text-center">
         <a
           className="text-teal-200 font-extrabold"
-          href="https://github.com/bobman38/nelligan-plus/issues/new/choose"
+          href="https://github.com/julbrs/nelligan-plus/issues/new/choose"
           target="_blank"
           rel="noopener noreferrer"
         >
