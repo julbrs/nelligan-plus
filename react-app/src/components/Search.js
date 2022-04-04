@@ -73,6 +73,9 @@ const Search = ({ cards }) => {
                     >
                       <td className="py-4 px-6 text-sm font-medium text-gray-900 dark:text-white">
                         {book.title}
+                        <div className="text-gray-500 font-light italic text-xs">
+                          {book.resume}
+                        </div>
                       </td>
                       <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
                         {book.type}

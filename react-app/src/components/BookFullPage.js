@@ -62,6 +62,21 @@ const ReserveBlock = ({ cards, record }) => {
   );
 };
 
+const BookReservation = ({ available, cards, record }) => {
+  if (!available) {
+    return <Info text="This book is not available for reservation!" />;
+  }
+  if (!cards) {
+    return;
+  } else if (cards.length === 0) {
+    return (
+      <Info text="Add at least one card to be able to reserve this book!" />
+    );
+  } else if (cards.length > 0) {
+    return <ReserveBlock cards={cards} record={record} />;
+  }
+};
+
 const BookFullPage = ({ cards }) => {
   let { record } = useParams();
   const [loading, setLoading] = useState(true);
@@ -122,11 +137,12 @@ const BookFullPage = ({ cards }) => {
         ) : (
           <div className="pl-2 sm:pl-6">
             <div className="font-bold mb-2">{bookInfo.title}</div>
-            {cards && cards.length > 0 ? (
-              <ReserveBlock cards={cards} record={record} />
-            ) : (
-              <Info text="Add at least one card to be able to reserve this book!" />
-            )}
+            <BookReservation
+              available={bookInfo.available}
+              cards={cards}
+              record={record}
+            />
+
             <div className="mb-2">
               <p>
                 <strong>ISBN: </strong>

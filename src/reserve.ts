@@ -10,12 +10,20 @@ export const handler: APIGatewayProxyHandlerV2 = async (event) => {
   }
   const { record } = JSON.parse(event.body);
   try {
-    await api.reserve(card, record, card.library);
-    return {
-      statusCode: 200,
-      headers,
-      body: JSON.stringify({ message: "Book reserved!" }),
-    };
+    const success = await api.reserve(card, record, card.library);
+    if (success) {
+      return {
+        statusCode: 200,
+        headers,
+        body: JSON.stringify({ message: "Book reserved!" }),
+      };
+    } else {
+      return {
+        statusCode: 200,
+        headers,
+        body: JSON.stringify({ message: "This book is not available." }),
+      };
+    }
   } catch (e) {
     return errorObject(e);
   }

@@ -8140,10 +8140,10 @@ negotiator@0.6.3:
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.3.tgz#58e323a72fedc0d6f9cd4d31fe49f51479590ccd"
   integrity sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==
 
-nelligan-api@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/nelligan-api/-/nelligan-api-1.0.7.tgz#6657262bf6d6a3fb4f2c676e9463ec555224b324"
-  integrity sha512-Gy0mxnOjwi/qlvdtSIcFl7iZmRDr43CFtINRv3jiGc3CTYuhdIFNHAscy9VEwzFIIRJfzS4Cc9FWE2iiu/fa5A==
+nelligan-api@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/nelligan-api/-/nelligan-api-1.0.10.tgz#e2ef849b71f15d717ef8350ff46a4dc09bebd400"
+  integrity sha512-/qclSbVAwJOu2jJ7dR3M4xz7Ur3NBBsVhdQzGiP4MPVPlq7P/yVsCuWkJLb1UeE5npPAz0OYMghqrfG50dbrdQ==
   dependencies:
     axios "^0.26.0"
     axios-cookiejar-support "^2.0.4"
