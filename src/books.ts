@@ -46,10 +46,18 @@ export const renew: APIGatewayProxyHandlerV2 = async (event) => {
       body: JSON.stringify(data),
     };
   } catch (e) {
+    console.log(e);
+    if (e instanceof Error) {
+      return {
+        statusCode: 500,
+        headers,
+        body: e.message,
+      };
+    }
     return {
       statusCode: 500,
       headers,
-      body: JSON.stringify(e),
+      body: e,
     };
   }
 };

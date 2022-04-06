@@ -59,7 +59,7 @@ const Book = (props) => {
       })
       .catch((err) => {
         // if error during renew
-        setError(err.response.data.msg);
+        setError(err.response.data);
       });
   };
 
