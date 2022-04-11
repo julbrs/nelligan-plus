@@ -16,24 +16,20 @@ const Holds = ({ cards }) => {
         cards
           // remove card in error to avoid reaction loop
           .filter((c) => c.error === undefined)
-          .map((card) =>
-            API.get("main", `/cards/${card.id}/holds`)
-              .then((data) => {
-                // add card info to the book
-                return data.hold.map((book) => {
-                  book.card = card;
-                  book.duedate = book.pickup;
-                  return book;
-                });
-              })
-              .catch((err) => {
-                // if error during books call then return an empty array
-                return [];
-              })
-          )
+          .map(async (card) => {
+            try {
+              const data = await API.get("main", `/cards/${card.id}/holds`);
+              return data.hold.map((book) => {
+                book.card = card;
+                book.duedate = book.pickup;
+                return book;
+              });
+            } catch (err) {
+              return [];
+            }
+          })
       ).then((data) => {
         // flatten and order by due-date the list after
-
         setBooks(
           data.flat().sort((a, b) => {
             if (a.title > b.title) {
